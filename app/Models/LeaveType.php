@@ -10,5 +10,5 @@ class LeaveType extends Model
     use HasFactory;
 
     protected $table = 'leave_types';
-    protected $fillable = ['name', 'max_hours_per_year', 'carry_over_hours'];
+    protected $fillable = ['name', 'max_hours_per_year', 'carry_over_hours', 'color'];
 }

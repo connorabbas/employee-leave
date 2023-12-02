@@ -12,9 +12,9 @@ class EmployeeLeaveAllotment extends Model
 
     protected $table = 'employee_leave_allotments';
     protected $fillable = [
-        'user_id', 
-        'leave_type_id', 
-        'allotted_hours', 
+        'user_id',
+        'leave_type_id',
+        'allotted_hours',
         'used_hours'
     ];
 

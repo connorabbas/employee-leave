@@ -13,6 +13,7 @@ return new class () extends Migration {
         Schema::create('leave_types', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('color');
             $table->integer('max_hours_per_year');
             $table->integer('carry_over_hours');
             $table->timestamps();
