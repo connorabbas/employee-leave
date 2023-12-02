@@ -12,8 +12,7 @@ return new class () extends Migration {
     {
         Schema::table('users', function (Blueprint $table) {
             $table->foreignId('location_id')->nullable()->constrained('locations');
-            $table->boolean('is_admin');
-            $table->index(['location_id', 'is_admin']);
+            $table->index(['location_id']);
         });
     }
 
@@ -23,8 +22,7 @@ return new class () extends Migration {
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropIndex(['location_id', 'is_admin']);
-            $table->dropColumn('is_admin');
+            $table->dropIndex(['location_id']);
             $table->dropConstrainedForeignId('location_id');
         });
     }
