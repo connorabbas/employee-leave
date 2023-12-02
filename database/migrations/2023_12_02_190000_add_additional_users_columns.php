@@ -11,8 +11,9 @@ return new class () extends Migration {
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('department_id')->nullable()->constrained()->onDelete('set null')->after('password');
-            $table->index(['department_id']);
+            $table->foreignId('location_id')->nullable()->constrained('locations');
+            $table->boolean('is_admin');
+            $table->index(['location_id', 'is_admin']);
         });
     }
 
@@ -22,8 +23,9 @@ return new class () extends Migration {
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropIndex(['department_id']);
-            $table->dropConstrainedForeignId('department_id');
+            $table->dropIndex(['location_id', 'is_admin']);
+            $table->dropColumn('is_admin');
+            $table->dropConstrainedForeignId('location_id');
         });
     }
 };
