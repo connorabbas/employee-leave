@@ -22,6 +22,10 @@ class DefaultRolesAndPermissionsSeeder extends Seeder
         Permission::create(['name' => 'create permission']);
         Permission::create(['name' => 'assign permission to role']);
 
-        $superAdmin->givePermissionTo(['create role', 'create permission', 'assign permission to role']);
+        $superAdmin->givePermissionTo([
+            'create role',
+            'create permission',
+            'assign permission to role'
+        ]);
     }
 }

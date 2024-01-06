@@ -52,7 +52,7 @@ class CreateUserCommand extends Command
             'email' => $email,
             'password' => Hash::make($password),
         ]);
-        $user->fresh()->assignRole($chosenRoles);
+        $user->assignRole($chosenRoles);
 
         $this->info('User successfully created!');
     }
